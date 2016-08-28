@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data >
+        <import type="com.example.gavin.databindingtest.User"/>
+        <variable
+            name="user"
+            type="User" />
+        <variable
+            name="handle"
+            type="com.example.gavin.databindingtest.MyHandler"/>
+        <variable
+            name="user2"
+            type="com.example.gavin.databindingtest.User2"/>
+        <variable
+            name="mainActivity"
+            type="com.example.gavin.databindingtest.MainActivity"/>
+        <variable
+            name="imageUrl"
+            type="String"/>
+    </data>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.firstName}"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{mainActivity.mName}"
+            android:onClick="@{handle.onClick}"
+            android:textSize="25sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user2.firstName}"
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user2.lastName}"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = '@{user2.isStudent ? "Student" : "Not Student"}'
+            android:textSize="25sp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:image = "@{imageUrl}"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</layout>
